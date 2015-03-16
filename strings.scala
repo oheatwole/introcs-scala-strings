@@ -51,13 +51,21 @@ object strings  {
  */
 
    def getFormattedName(name : String) : String = {
-     
-      if (name.contains(" ")){
+      val space = name.count(_==' ')
+      if (space == 1){
         val split = name.split(" ")
         val first = split{0}
         val last = split{1}
+        
             (s"$last, $first")
         }
+      else if (space == 2){
+        val split = name.split(" ")
+        val first = split{0}
+        val middle = split{1}
+        val last = split{2}
+            (s"$last, $first $middle")  
+       }
       else {
             (s"$name")
         }
